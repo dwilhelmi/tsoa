@@ -602,7 +602,7 @@ export class TypeResolver {
       if (ts.isEnumMember(oneDeclaration)) {
         name = identifiers.slice(identifiers.length - 2).join('.');
       } else {
-        name = identifiers.slice(identifiers.length - 1).join('.');
+        name = identifiers.map(segment => `${segment.charAt(0).toUpperCase()}${segment.slice(1)}`).join('');
       }
 
       let actNode = oneDeclaration.parent;
